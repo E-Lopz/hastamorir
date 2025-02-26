@@ -1,0 +1,32 @@
+body {
+  background-color: black;
+  font-family: 'TimesLTPro-Semibold', Times, sans-serif;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    border-color: whitesmoke;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0em;
+    z-index: 1000;
+    font-family: helvetica;
+  }
+  
+  nav a,
+  nav span {
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 1.5em 1.5em 0.5em;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+    color: whitesmoke;
+  }
