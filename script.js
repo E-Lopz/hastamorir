@@ -118,7 +118,7 @@ function windowResized() {
 
 /////// NAV dropdown ///////
 
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function () {
     const dropdowns = document.querySelectorAll('.dropdown');
 
     dropdowns.forEach(dropdown => {
@@ -149,4 +149,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
+};
