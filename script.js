@@ -5,6 +5,10 @@ let myFont;
 let showText = false;
 let canvas;
 
+let previousGrid; // Stores the previous state
+let stableFrames = 0; // Counts frames without changes
+const STABILITY_THRESHOLD = 30; // Number of frames to check stability
+
 function preload() {
     myFont = loadFont('/fonts/EVA-Matisse_Classic.ttf'); // Ensure Bold.ttf is in the same directory
 }
