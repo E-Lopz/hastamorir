@@ -110,3 +110,43 @@ function windowResized() {
     let parentDiv = document.getElementById('landing');
     resizeCanvas(parentDiv.clientWidth, parentDiv.clientHeight);
 }
+
+
+
+
+/////// NAV dropdown ///////
+
+/////// NAV dropdown ///////
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const hoverElement = dropdown.querySelector('.dropdown-hover');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+        // Show dropdown on hover
+        hoverElement.addEventListener('mouseenter', () => {
+            dropdownContent.style.display = 'block';
+        });
+
+        // Keep dropdown open when moving mouse inside the dropdown content
+        dropdownContent.addEventListener('mouseenter', () => {
+            dropdownContent.style.display = 'block';
+        });
+
+        // Hide dropdown only when the mouse leaves both hoverElement and dropdownContent
+        dropdown.addEventListener('mouseleave', () => {
+            dropdownContent.style.display = 'none';
+        });
+    });
+
+    // Close all dropdowns if clicking outside
+    document.addEventListener('click', function (e) {
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.querySelector('.dropdown-content').style.display = 'none';
+            }
+        });
+    });
+});

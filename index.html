@@ -9,25 +9,39 @@
 <body>
     <nav class="sticky-top">
         <div class="left">
-            <span id="title">
+            <a id="title" href="https://hastamorir.com">
                 HASTA MORIR
-            </span>
-            <span class="dropdown-hover">
-                Nosotros
-            </span>
-            <span class="dropdown-hover" id="tichas">
-                Tienda
-            </span>
+            </a>
+            <!-- Dropdown for 'Nosotros' -->
+            <div class="dropdown">
+                <span class="dropdown-hover">
+                    Que?
+                </span>
+                <div class="dropdown-content">
+                    <a href="#">Blog</a>
+                    <a href="#">Sorpresa</a>
+                </div>
+            </div>
+            <!-- Dropdown for 'Tienda' -->
+            <div class="dropdown">
+                <span class="dropdown-hover" id="tichas">
+                    Cuanto?
+                </span>
+                <div class="dropdown-content">
+                    <a href="#">Ropa</a>
+                    <a href="#">Accesorios</a>
+                    <a href="#">Otros</a>
+                </div>
+            </div>
         </div>
         <div class="right">
-            <a id="about-link" href="https://e-lopz.github.io/">{Contacto}</a>
+            <a id="about-link" href="https://e-lopz.github.io/">{Quien?}</a>
             <span class="dropdown-toggle">es</span>
         </div>
     </nav>
 
     <div id="landing">
     </div>
-
 
     <script src="script.js"></script>
 </body>
