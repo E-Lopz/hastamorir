@@ -23,8 +23,8 @@ function draw() {
     background(0);
     
     let deadCells = 0;
-
-    // Draw Game of Life cells
+    let changes = 0; // Count changed cells
+    
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
             let x = i * resolution;
@@ -35,26 +35,34 @@ function draw() {
                 strokeWeight(2);
                 line(x, y, x, y + resolution - 2);
             } else {
-                deadCells++; // Count dead cells
+                deadCells++; 
+            }
+
+            // Compare with previous grid
+            if (previousGrid && grid[i][j] !== previousGrid[i][j]) {
+                changes++; // Count how many cells changed
             }
         }
     }
 
-    // Update grid for next generation
-    grid = nextGeneration(grid);
-
-    // If most cells are dead, show "Hasta Morir"
-    showText = deadCells > cols * rows * 0.9;
-
-    // Draw text inside canvas
-    if (showText) {
-        textFont(myFont);
-        let textSizeValue = min(width, height) * 0.1; // Adjust size dynamically
-        textSize(textSizeValue);
-        fill(255);
-        textAlign(CENTER, CENTER);
-        text("HASTA MORIR", width / 2, height / 2);
+    // Check if grid is stable
+    if (changes === 0) {
+        stableFrames++; // Increment stable count
+    } else {
+        stableFrames = 0; // Reset if there was a change
     }
+
+    // If stable for X frames, declare it stable
+    if (stableFrames >= STABILITY_THRESHOLD) {
+        console.log("Game of Life is stable!");
+        // You can trigger an event here, e.g., display a message
+    }
+
+    // Store current grid as previous grid for next comparison
+    previousGrid = JSON.parse(JSON.stringify(grid)); // Deep copy to prevent reference issues
+
+    // Update grid for next frame
+    grid = nextGeneration(grid);
 }
 
 // Function to create a 2D array (optional preserveGrid)
